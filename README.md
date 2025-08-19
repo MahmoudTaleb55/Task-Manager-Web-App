@@ -23,24 +23,24 @@ Designed to demonstrate clean architecture, rapid delivery, and production‑rea
 
 ## 📦 Installation & Setup
 
-1. **Clone the repository**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/YourUsername/your-repo-name.git
    cd your-repo-name
 
-2. **Create & activate a virtual environment**
+2. **Create & activate a virtual environment:**
    python -m venv venv
    source venv/bin/activate   # On Windows: venv\Scripts\activate
 
-3. **Install dependencies**
+3. **Install dependencies:**
    pip install -r requirements.txt
 
-4. **Run migrations**
+4. **Run migrations:**
    python manage.py makemigrations
    python manage.py migrate
 
-5. **Start the development server**
+5. **Start the development server:**
    python manage.py runserver
 
-6. **Access the app**
+6. **Access the app:**
    Open your browser and go to: http://127.0.0.1:8000
