@@ -25,7 +25,7 @@ Designed to demonstrate clean architecture, rapid delivery, and production‑rea
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YourUsername/your-repo-name.git
+   git clone https://github.com/MahmoudTaleb55/your-repo-name.git
    cd your-repo-name
 
 2. **Create & activate a virtual environment:**
