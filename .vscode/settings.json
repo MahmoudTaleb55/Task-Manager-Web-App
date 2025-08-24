@@ -8,5 +8,6 @@
         "./hello",
         "-p",
         "test*.py"
-    ]
+    ],
+    "Codegeex.SidebarUI.LanguagePreference": "English"
 }
