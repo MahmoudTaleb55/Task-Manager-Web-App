@@ -1,33 +1,38 @@
 {% extends 'base.html' %}
 
-{% block title %}Create Task - Task Manager Pro{% endblock %}
+{% block title %}Login - Task Manager Pro{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center py-4">
-    <div class="col-md-8 col-lg-6">
-        <div class="dashboard-card p-4">
+<div class="row justify-content-center py-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="auth-container p-4">
             <div class="text-center mb-4">
                 <h2 class="fw-bold text-primary">
-                    <i class="bi bi-plus-circle-fill me-2"></i>Create New Task
+                    <i class="bi bi-check-circle-fill me-2"></i>Welcome Back
                 </h2>
-                <p class="text-muted">Add a new task to your list</p>
+                <p class="text-muted">Sign in to your account</p>
             </div>
 
             <form method="post" class="needs-validation" novalidate>
                 {% csrf_token %}
                 
+                <!-- Display non-field errors -->
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}
+                    <div class="mb-2">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
                 {% for field in form %}
                 <div class="mb-3">
                     <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
                         {{ field.label }}
-                        {% if field.field.required %}
-                        <span class="text-danger">*</span>
-                        {% endif %}
                     </label>
                     {{ field }}
-                    {% if field.help_text %}
-                    <div class="form-text">{{ field.help_text }}</div>
-                    {% endif %}
                     {% if field.errors %}
                     <div class="invalid-feedback d-block">
                         {{ field.errors.0 }}
@@ -36,15 +41,20 @@
                 </div>
                 {% endfor %}
 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a href="{% url 'task_list' %}" class="btn btn-secondary me-md-2">
-                        <i class="bi bi-arrow-left me-1"></i>Back to Tasks
-                    </a>
-                    <button type="submit" class="btn btn-success">
-                        <i class="bi bi-check-circle-fill me-1"></i>Create Task
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
                     </button>
                 </div>
             </form>
+
+            <div class="text-center mt-4">
+                <p class="text-muted">Don't have an account?
+                    <a href="{% url 'signup' %}" class="text-primary text-decoration-none fw-semibold">
+                        Create one here
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
@@ -65,11 +75,6 @@
     .form-label {
         color: #495057;
         margin-bottom: 0.5rem;
-    }
-    
-    .form-text {
-        font-size: 0.875rem;
-        color: #6c757d;
     }
 </style>
 {% endblock %}

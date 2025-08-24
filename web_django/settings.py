@@ -30,7 +30,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+AUTH_USER_MODEL = 'accounts.CustomUser'  # Set the custom user model
+
 INSTALLED_APPS = [
+    'accounts',  # Add the accounts app
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -56,7 +59,7 @@ ROOT_URLCONF = "web_django.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],  # Add project-level templates directory
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
